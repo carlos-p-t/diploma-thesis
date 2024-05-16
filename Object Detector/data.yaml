@@ -1,0 +1,8 @@
+path: C:\Users\Carlos\Documents\Carlos\Comenius University\Master's Degree\Diploma\Practice\Mapillary-vistas-dataset\mapillary_vistas_v1\Data
+train: train\images
+val: validation\images
+
+nc: 1
+
+names:
+   0: Billboard
