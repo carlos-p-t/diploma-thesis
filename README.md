@@ -4,7 +4,7 @@
 
 Welcome to my Master's Degree diploma thesis repository.
 
-Please consider reading this before navigating through files, to understand the directories and the files within them.
+Please consider reading this before navigating through this repository, to understand the directories and the files within them.
 
 ### About the diploma thesis skeleton
 
