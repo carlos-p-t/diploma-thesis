@@ -8,7 +8,7 @@ Please consider reading this before navigating through this repository, to under
 
 ### About the diploma thesis skeleton
 
-The directory [**Diploma**](https://github.com/carlos-p-t/diploma-thesis/tree/main/Diploma) directory contains the LaTex files of the Diploma Thesis skeleton following the course policy.
+The directory [**Diploma**](https://github.com/carlos-p-t/diploma-thesis/tree/main/Diploma) contains the LaTex files of the Diploma Thesis skeleton following the course policy.
 To visualize the thesis skeleton, please refer to the [main.pdf](https://github.com/carlos-p-t/diploma-thesis/blob/main/Diploma/main.pdf) file. The 2 scientific articles for 
 literature can be found in the [references.bib](https://github.com/carlos-p-t/diploma-thesis/blob/main/Diploma/references.bib) file. The rest of the files are part of the rest
 of the diploma thesis skeleton.
