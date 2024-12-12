@@ -47,7 +47,7 @@ The [Framework](https://github.com/carlos-p-t/diploma-thesis/tree/main/Framework
 
 - [Fine Tuning](https://github.com/carlos-p-t/diploma-thesis/tree/main/Framework/Fine%20Tuning): Includes two notebooks (1 per base model trained) and the respective YAML file used for fine tuning the object detector from the previous step.
 
-The [Results](https://github.com/carlos-p-t/diploma-thesis/tree/main/Results) directory contains the notebook where the best models were tested on images and it is possible to see the capability of the object detector to detect billboards.
+The [Results](https://github.com/carlos-p-t/diploma-thesis/tree/main/Results) directory contains the notebook where the best models were tested on images and it is possible to see the capability of the object detector to detect billboards. Additionally, the best two models (after fine tuning) are uploaded in case someone wants to verify on custom dataset.
 
 The [Studied Papers](https://github.com/carlos-p-t/diploma-thesis/tree/main/Studied%20Papers) include the electronic versions of the articles studied to develop this part of the project. They are also included properly in the Thesis Draft document.
 
@@ -56,3 +56,5 @@ The main documents included in this repository are:
 * [Diploma Draft](https://github.com/carlos-p-t/diploma-thesis/blob/main/Diploma_draft.pdf): The LaTeX PDF version of the thesis progress, as requested by the requirements.
 
 * The [presentation](https://github.com/carlos-p-t/diploma-thesis/blob/main/Evaluating%20the%20significance%20of%20outdoor%20advertising%20utilizing%20computer%20vision%20II.pptx) of the results achieved for this course, the [PDF](https://github.com/carlos-p-t/diploma-thesis/blob/main/Evaluating%20the%20significance%20of%20outdoor%20advertising%20utilizing%20computer%20vision%20II.pdf) version of this file is included for visualization purposes.
+
+More details about the datasets, procedures, methodologies, and the results are explained in the Diploma Draft file.
