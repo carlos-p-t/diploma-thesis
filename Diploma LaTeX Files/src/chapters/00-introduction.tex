@@ -1,0 +1,18 @@
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+\markboth{Introduction}{Introduction}
+
+Neural networks have been constantly evolving and adapting to our current technologies and needs, to the point that they are now present in various fields as part of systems designed to assist people with different tasks. Computer vision is one of these fields that we are particularly interested in, especially because humans can benefit significantly from it. Therefore, the current work focuses on computer vision tasks applied to road safety. \\
+
+Roadside billboards are one of the most popular media for outdoor advertising, used by businesses to capture the attention of both pedestrians and drivers. However, while this method is effective for marketing purposes, advertisements can pose potential risks, particularly for drivers. Studies have shown that billboards can become a source of distraction, increasing the probability of accidents. Therefore, understanding the interaction between billboards and drivers’ behavior is critical. \\
+
+Recent advancements in computer vision offer various opportunities to analyze the impact of billboards. However, despite the growing interest in understanding the effects of roadside billboards, current methods face different limitations. Traditional object detection approaches often struggle to achieve high accuracy in complex urban environments, where billboards appear in different sizes, shapes, and placements. Furthermore, while some studies on driver attention exist, there is limited research linking billboard detection with gaze duration classification, leading to a significant gap in understanding how billboard visibility is related to driver distraction. \\
+
+This work aims to contribute to road safety by developing a robust pipeline that will consist of a YOLO-based object detector (trained and fine-tuned with the Mapillary Vistas and BillboardLamac datasets) and a classification system for driver gaze toward billboards, using the BillboardLamac dataset to categorize gaze into predefined classes. With this pipeline, we intend to investigate the connection between billboard detection results and driver attention metrics, providing insights into road safety and advertisement effectiveness. \\
+
+The structure of this thesis is as follows: The first chapter will review previous works that address challenges related to our study. The second chapter will outline the methodology and implementation of the pipeline, detailing the training of the object detector and classification systems. Chapter 4 will present the results obtained after training each system, along with their metrics. Chapter 5 will provide a deep analysis of the results, examining their impact on solving the problem. Finally, the last chapter will summarize our approach, offer suggestions for future work, and provide a conclusion of our experiments. \\
+
+
+%Put your introduction here. By the way, you can cite articles~\cite{moore_hard_tiling}, books~\cite{golomb_polyomino_book}, websites~\cite{cadical_github}, manuals~\cite{sage}, or other resources. You can reference other chapters, sections, images, etc.\ using the \texttt{cleveref} package like this:~\cref{ch:terminology}.
+
+%\LaTeX{} basics tutorial: \url{https://www.overleaf.com/learn/latex/Learn_LaTeX_in_30_minutes}

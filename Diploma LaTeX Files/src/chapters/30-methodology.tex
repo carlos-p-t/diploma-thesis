@@ -1,0 +1,8 @@
+\chapter{Methodology}\label{ch:methodology}
+
+The current thesis is developed in a two-stage pipeline: a YOLO-based object detection model capable of detecting roadside billboards and a gaze duration classification system that will categorize driver attention. The object detector was trained using a specific subset of the Mapillary Vistas dataset and fine-tuned with the BillboardLamac dataset for improved accuracy. The image classifier utilizes a different subset of the BillboardLamac dataset to predict drivers' gaze duration into predefined classes: Long, Medium, None, and Short.
+
+\input chapters/31-objectdetector.tex
+\input chapters/32-classifier.tex
+\input chapters/33-pipelineintegration.tex
+\input chapters/34-resources.tex

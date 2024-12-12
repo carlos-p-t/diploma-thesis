@@ -1,0 +1,7 @@
+\section{Data Annotation}\label{sec:dataannotation}
+
+Annotations are a crucial part of the data needed to train a robust model. The Mapillary Vistas dataset includes high-quality, manually annotated images with detailed semantic segmentation masks. This annotation process involved using polygons to delineate individual objects. With this information, it was possible to obtain the bounding boxes for each billboard whenever it appeared in an image.\\
+
+However, the original Mapillary Vistas dataset only included annotations for the training and validation data; there were no annotations for the testing subset. It was necessary to annotate this subset to properly evaluate the results after training the models. To annotate the images, both RoboFlow and Segment Anything tools were used, allowing for careful manual annotation of each billboard through their interfaces.\\
+
+The BillboardLamac Dataset already included annotations from previous work when this dataset was created. The annotations in this dataset are provided in the form of bounding boxes under the YOLO format. This format will be discussed with more details in the next section.

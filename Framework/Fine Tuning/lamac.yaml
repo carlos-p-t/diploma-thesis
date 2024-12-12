@@ -1,0 +1,9 @@
+path: /home/t/troncoso1/Diploma/Lamac_Dataset
+train: train/images
+val: val/images
+test: test/images
+
+nc: 1
+
+names:
+   0: Billboard

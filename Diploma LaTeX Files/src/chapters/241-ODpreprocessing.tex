@@ -1,0 +1,19 @@
+\subsection{Data Preparation for Object Detection Task}\label{sec:preprocessingdetection}
+
+As introduced earlier, the Mapillary Vistas Dataset includes annotations for its training and validation subsets. To create our training subset from the original dataset, we first selected 5000 images that contained billboards and added 1000 images that did not contain any billboards. Similarly, for the validation subset, we selected 1000 images with billboards and 200 images without them. Lastly, for the testing set, 2500 random images were chosen since this subset's goal is to test the object detector model.\\
+
+To train the object detector using the YOLO pre-trained models, images with their respective labels are needed. These labels must be in a specific format, referred to as YOLO format for the purposes of this work. The YOLO format must consist of five numbers: \textit{<class\_id> <x\_center> <y\_center> <width> <height>}. The \textit{<class\_id>} value refers to the ID of the object class; in our case, we assigned the class “0” to billboards since the only task of our object detector is to detect billboards. The \textit{<x\_center>} and \textit{<y\_center>} values are the normalized x and y-coordinates of the center of the bounding box, respectively; they can be calculated as:
+
+\begin{align}
+x_{\text{center}} &= \frac{x_{\text{min}} + x_{\text{max}}}{2 \cdot \text{image\_width}} \\
+y_{\text{center}} &= \frac{y_{\text{min}} + y_{\text{max}}}{2 \cdot \text{image\_height}}
+\end{align} \\
+
+Similarly, \textit{<width>} corresponds to the normalized width of the bounding box relative to the image width, and \textit{<height>} is the normalized height of the bounding box relative to the image height. These values can be calculated as follows:
+
+\begin{align}
+\text{width} &= \frac{x_{\text{max}} - x_{\text{min}}}{\text{image\_width}} \\
+\text{height} &= \frac{y_{\text{max}} - y_{\text{min}}}{\text{image\_height}}
+\end{align}
+
+The Mapillary Vistas Dataset does not explicitly include these labels. We created a script that processes the segmentation label information and transforms it into YOLO format for each billboard whenever an image contains one. The testing subset did not contain this segmentation label information. To obtain the label-bounding boxes of the test images, the \textit{RoboFlow} Annotate tool was primarily used, along with \textit{Segment Anything} to support challenging scenarios where billboards were difficult to select. The annotation was manually performed by us using the interfaces of the mentioned tools. The advantage of using these tools is that we could export the results directly in YOLO format.

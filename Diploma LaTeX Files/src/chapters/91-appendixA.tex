@@ -1,0 +1,299 @@
+\chapter{Training Results}\label{app:trainingresults}
+
+\section*{List of Abbreviations Used in this Appendix}
+\begin{itemize}
+    \item \textbf{LRS}: Learning Rate Scheduler.
+    \item \textbf{WD}: Weight Decay.
+    \item \textbf{CA}: Cosine Annealing.
+    \item \textbf{AW}: AdamW Optimizer.
+    \item \textbf{DO}: Dropout (\(p=0.2\)).
+    \item \textbf{DA1}: Data Augmentation 1 - (Flip Upside Down, Flip Left to Right, Scaling).
+    \item \textbf{DA2}: Data Augmentation 2 - (DA1 + Hue, Saturation, Value).
+    \item \textbf{X}: Extra Large Model.
+    \item \textbf{M}: Momentum.
+    \item \textbf{GA}: Gradient Augmentation.
+    \item \textbf{ESA}: Early Stopping Activated.
+\end{itemize}
+
+\begin{table}[ht]
+    \centering % Centers the table horizontally
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{ID}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Epochs}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Batch}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Image} \\ \textbf{Size}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Learning} \\ \textbf{Rate}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Extra} \\ \textbf{Notes}} \\
+        \hline
+        1 & 50 & 16 & 640 & 0.01 & - \\ \hline
+        2 & 50 & 8 & 640 & 0.01 & - \\ \hline
+        3 & 50 & 8 & 1024 & 0.01 & - \\ \hline
+        4 & 50 & 8 & 1280 & 0.01 & - \\ \hline
+        5 & 50 & 4 & 1280 & 0.01 & - \\ \hline
+        6 & 100 & 8 & 1280 & 0.01 & - \\ \hline
+        7 & 100 & 4 & 1280 & 0.01 & - \\ \hline
+        8 & 100 & 8 & 1280 & 0.01 & LRS \\ \hline
+        9 & 100 & 4 & 1280 & 0.01 & WD \\ \hline
+        10 & 100 & 4 & 1280 & 0.01 & CA \\ \hline
+        11 & 150 & 4 & 1280 & 0.01 & WD+CA \\ \hline
+        12 & 150 & 8 & 1280 & 0.01 & - \\ \hline
+        13 & 100 & 4 & 1280 & 0.01 & WD+CA+AW \\ \hline
+        14 & 100 & 4 & 1280 & 0.01 & AW \\ \hline
+        22 & 100 & 4 & 1280 & 0.0025 & - \\ \hline
+        24 & 100 & 6 & 1280 & 0.0025 & - \\ \hline
+        
+    \end{tabular}
+    \caption{YOLOv8 medium size pre-trained model base training hyperparameters.}
+    \label{tab:yolov8mediumhyperparameters}
+\end{table}
+    
+\newpage
+\begin{table}[ht]
+    \centering % Centers the table horizontally
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{ID}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Precision}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Recall}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{mAP@50}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{mAP@50-95}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Fitness}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{Time}} \\
+        \hline
+        1 & 0.456 & 0.418 & 0.381 & 0.245 & 0.259 & 45'\\ \hline
+        2 & 0.427 & 0.437 & 0.376 & 0.247 & 0.260 & 45'\\ \hline
+        3 & 0.459 & 0.479 & 0.435 & 0.301 & 0.315 & 1h 20'\\ \hline
+        4 & 0.473 & 0.468 & 0.432 & 0.300 & 0.314 & 2h 50'\\ \hline
+        5 & 0.466 & 0.479 & 0.447 & 0.311 & 0.325 & 2h 49'\\ \hline
+        6 & 0.477 & 0.448 & 0.426 & 0.300 & 0.313 & 5h 40'\\ \hline
+        7 & 0.450 & 0.500 & 0.448 & 0.312 & 0.325 & 5h 45'\\ \hline
+        8 & 0.477 & 0.448 & 0.426 & 0.300 & 0.313 & 5h 40'\\ \hline
+        9 & 0.462 & 0.496 & 0.442 & 0.306 & 0.319 & 5h 41'\\ \hline
+        10 & 0.488 & 0.467 & 0.440 & 0.307 & 0.320 & 5h 45'\\ \hline
+        11 & 0.458 & 0.488 & 0.428 & 0.297 & 0.310 & 8h 55'\\ \hline
+        12 & 0.436 & 0.473 & 0.409 & 0.285 & 0.297 & 9h 1'\\ \hline
+        13 & 0.481 & 0.468 & 0.440 & 0.306 & 0.320 & 5h 20'\\ \hline
+        14 & 0.416 & 0.460 & 0.386 & 0.262 & 0.275 & 5h 44'\\ \hline
+        22 & 0.450 & 0.500 & 0.448 & 0.312 & 0.325 & 6h 40'\\ \hline
+        24 & 0.492 & 0.467 & 0.452 & 0.314 & 0.328 & 6h 5'\\ \hline
+        
+    \end{tabular}
+    \caption{YOLOv8 medium size pre-trained model base training results.}
+    \label{tab:yolov8mediumresults}
+\end{table}
+
+
+\newpage
+\begin{table}[ht]
+    \centering % Centers the table horizontally
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{ID}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Epochs}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Batch}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Image} \\ \textbf{Size}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Learning} \\ \textbf{Rate}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Extra} \\ \textbf{Notes}} \\
+        \hline
+        15 & 100 & 4 & 1280 & 0.01 & - \\ \hline
+        16 & 100 & 4 & 1280 & 0.01 & WD+CA+AW \\ \hline
+        17 & 150 & 4 & 1280 & 0.01 & - \\ \hline
+        18 & 150 & 4 & 1280 & 0.01 & DO \\ \hline
+        19 & 100 & 4 & 1280 & 0.01 & DA1 \\ \hline
+        20 & 100 & 4 & 1280 & 0.01 & DA2 \\ \hline
+        21 & 100 & 4 & 1280 & 0.01 & X \\ \hline
+        23 & 100 & 6 & 1280 & 0.01 & DA1 \\ \hline
+        25  & 150 & 6 & 1280 & 0.01 & DA1 \\ \hline
+        26 & 150 & 6 & 1280 & 0.00375 & - \\ \hline
+        28 & 100 & 6 & 1280 & 0.00375 & - \\ \hline
+        30 & 150 & 6 & 1280 & 0.00375 & DA1 \\ \hline
+        
+    \end{tabular}
+    \caption{YOLOv8 large size pre-trained model base training hyperparameters.}
+    \label{tab:yolov8largehyperparameters}
+\end{table}
+
+
+\newpage
+\begin{table}[ht]
+    \centering % Centers the table horizontally
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{ID}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Precision}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Recall}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{mAP@50}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{mAP@50-95}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Fitness}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{Time}} \\
+        \hline
+        15 & 0.453 & 0.510 & 0.438 & 0.302 & 0.316 & 9 h 29'\\ \hline
+        16 & 0.424 & 0.460 & 0.391 & 0.266 & 0.279 & 9h 31'\\ \hline
+        17 & 0.487 & 0.473 & 0.443 & 0.310 & 0.323 & 13h 1'\\ \hline
+        18 & 0.487 & 0.473 & 0.443 & 0.310 & 0.323 & 13h 1'\\ \hline
+        19 & 0.454 & 0.508 & 0.455 & 0.323 & 0.337 & 8h 40'\\ \hline
+        20 & 0.454 & 0.508 & 0.455 & 0.323 & 0.337 & 8h 45'\\ \hline
+        21 & 0.448 & 0.501 & 0.449 & 0.317 & 0.330 & 13h 50'\\ \hline
+        23 & 0.462 & 0.492 & 0.449 & 0.316 & 0.329 & 9h 25'\\ \hline
+        25 & 0.479 & 0.495 & 0.458 & 0.323 & 0.336 & 14h 10'\\ \hline
+        26 & 0.492 & 0.467 & 0.452 & 0.314 & 0.328 & 6h 48'\\ \hline
+        28 & 0.454 & 0.489 & 0.438 & 0.304 & 0.318 & 9h 45'\\ \hline
+        30 & 0.447 & 0.494 & 0.439 & 0.306 & 0.319 & 13h 55'\\ \hline
+        
+    \end{tabular}
+    \caption{YOLOv8 large size pre-trained model base training results.}
+    \label{tab:yolov8largeresults}
+\end{table}
+
+\begin{table}[ht]
+    \centering % Centers the table horizontally
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{ID}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Epochs}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Batch}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Image} \\ \textbf{Size}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Learning} \\ \textbf{Rate}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Extra} \\ \textbf{Notes}} \\
+        \hline
+        27 & 150 & 6 & 1280 & 0.01 & DA1 \\ \hline
+        29 & 150 & 6 & 1280 & 0.00375 & DA1 \\ \hline
+        
+    \end{tabular}
+    \caption{YOLO11 large size pre-trained model base training hyperparameters.}
+    \label{tab:yolo11largehyperparameters}
+\end{table}
+
+\begin{table}[ht]
+    \centering % Centers the table horizontally
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{ID}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Precision}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Recall}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{mAP@50}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{mAP@50-95}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Fitness}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{Time}} \\
+        \hline
+        27 & 0.510 & 0.480 & 0.467 & 0.334 & 0.347 & 13h 1'\\ \hline
+        29 & 0.510 & 0.480 & 0.467 & 0.334 & 0.347 & 13h' 14'\\ \hline
+        
+    \end{tabular}
+    \caption{YOLO11 large size pre-trained model base training results.}
+    \label{tab:yolo11largeresults}
+\end{table}
+
+% Fine Tuning
+
+\begin{table}[ht]
+    \centering % Centers the table horizontally
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{ID}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Epochs}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Batch}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Image} \\ \textbf{Size}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Learning} \\ \textbf{Rate}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Extra} \\ \textbf{Notes}} \\
+        \hline
+        1 & 50 & 4 & 1280 & 0.01 & - \\ \hline
+        2 & 50 & 4 & 1280 & 0.01 & WD \\ \hline
+        3 & 100 & 4 & 1280 & 0.01 & - \\ \hline
+        4 & 100 & 4 & 1280 & 0.01 & DA1 \\ \hline
+        5 & 150 & 4 & 1280 & 0.01 & - \\ \hline
+        6 & 150& 4 & 1280 & 0.01 & WD+M \\ \hline
+        7 & 100 & 6 & 1280 & 0.01 & - \\ \hline
+        8 & 100 & 4 & 1280 & 0.0025 & - \\ \hline
+        9 & 100 & 6 & 1280 & 0.00375 & - \\ \hline
+        10 & 100 & 4 & 1280 & 0.01 & GA \\ \hline
+        
+    \end{tabular}
+    \caption{YOLOv8-based fine-tuning hyperparameters.}
+    \label{tab:yolov8finetuningparameters}
+\end{table}
+
+\begin{table}[ht]
+    \centering % Centers the table horizontally
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{ID}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Precision}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Recall}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{mAP@50}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{mAP@50-95}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Fitness}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{Time}} \\
+        \hline
+        1 & 0.887 & 0.867 & 0.931 & 0.725 & 0.746 & 37'\\ \hline
+        2 & 0.887 & 0.867 & 0.931 & 0.725 & 0.746 & 37'\\ \hline
+        3 & 0.876 & 0.896 & 0.932 & 0.727 & 0.748 & 1h 2'\\ \hline
+        4 & 0.891 & 0.824 & 0.923 & 0.634 & 0.663 & 1h 1'\\ \hline
+        5 & 0.850 & 0.768 & 0.870 & 0.639 & 0.662 & 1h 20'\\ \hline
+        6 & 0.864 & 0.866 & 0.921 & 0.648 & 0.675 & 1h 47'\\ \hline
+        7 & 0.892 & 0.911 & 0.938 & 0.771 & 0.788 & 1h 13'\\ \hline
+        8 & 0.876 & 0.896 & 0.932 & 0.727 & 0.748 & 1h 11'\\ \hline
+        9 & 0.892 & 0.911 & 0.938 & 0.771 & 0.788 & 1h 12'\\ \hline
+        10 & 0.841 & 0.919 & 0.930 & 0.768 & 0.784 & 1h 2'\\ \hline
+        
+    \end{tabular}
+    \caption{YOLOv8-based fine-tuning results.}
+    \label{tab:yolov8finetuningresults}
+\end{table}
+
+
+\begin{table}[ht]
+    \centering % Centers the table horizontally
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{ID}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Epochs}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Batch}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Image} \\ \textbf{Size}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Learning} \\ \textbf{Rate}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Extra} \\ \textbf{Notes}} \\
+        \hline
+        11 & 50 & 4 & 1280 & 0.01 & - \\ \hline
+        12 & 100 & 4 & 1280 & 0.01 & - \\ \hline
+        13 & 150 & 4 & 1280 & 0.01 & - \\ \hline
+        14 & 200 & 4 & 1280 & 0.01 & ESA \\ \hline
+        15 & 150 & 4 & 1280 & 0.0025 & - \\ \hline
+        16 & 50 & 6 & 1280 & 0.01 & - \\ \hline
+        17 & 100 & 6 & 1280 & 0.01 & - \\ \hline
+        18 & 150 & 6 & 1280 & 0.01 & - \\ \hline
+        19 & 200 & 6 & 1280 & 0.01 & - \\ \hline
+        20 & 500 & 6 & 1280 & 0.01 & ESA \\ \hline
+        
+    \end{tabular}
+    \caption{YOLO11-based fine-tuning hyperparameters.}
+    \label{tab:yolo11finetuningparameters}
+\end{table}
+
+\begin{table}[ht]
+    \centering % Centers the table horizontally
+    \begin{tabular}{|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{ID}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Precision}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Recall}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{mAP@50}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{mAP@50-95}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Fitness}}
+        & \multicolumn{1}{|p{2cm}|}{\centering \textbf{Training} \\ \textbf{Time}} \\
+        \hline
+        11 & 0.890 & 0.823 & 0.920 & 0.702 & 0.724 & 37'\\ \hline
+        12 & 0.883 & 0.891 & 0.928 & 0.740 & 0.759 & 1h 10'\\ \hline
+        13 & 0.892 & 0.884 & 0.931 & 0.770 & 0.786 & 1h 35'\\ \hline
+        14 & 0.863 & 0.860 & 0.920 & 0.715 & 0.735 & 1h 10'\\ \hline
+        15 & 0.892 & 0.884 & 0.931 & 0.770 & 0.786 & 1h 40'\\ \hline
+        16 & 0.846 & 0.884 & 0.916 & 0.710 & 0.731 & 36'\\ \hline
+        17 & 0.888 & 0.848 & 0.926 & 0.720 & 0.741 & 1h 11'\\ \hline
+        18 & 0.892 & 0.896 & 0.925 & 0.744 & 0.762 & 1h 41'\\ \hline
+        19 & 0.883 & 0.906 & 0.933 & 0.781 & 0.796 & 2h 27'\\ \hline
+        20 & 0.898 & 0.919 & 0.940 & 0.794 & 0.809 & 4h 25'\\ \hline
+        
+    \end{tabular}
+    \caption{YOLO11-based fine-tuning results.}
+    \label{tab:yolo11finetuningresults}
+\end{table}

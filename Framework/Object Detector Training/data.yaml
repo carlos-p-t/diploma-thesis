@@ -1,0 +1,9 @@
+path: /home/t/troncoso1/Diploma/Data
+train: train/images
+val: validation/images
+test: testing/images
+
+nc: 1
+
+names:
+   0: Billboard
